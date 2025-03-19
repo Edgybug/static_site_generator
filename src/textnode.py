@@ -52,6 +52,7 @@ class TextNode():
                 return LeafNode("a", self.text, self.props)
             case _: 
                 raise Exception("Type not supported")
+        
             
             
     def __eq__(self, other):
