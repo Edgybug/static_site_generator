@@ -1,5 +1,5 @@
+from htmlnode import LeafNode
 from enum import Enum
-from leafnode import LeafNode
 
 class TextType(Enum):
         TEXT = "text"
@@ -16,21 +16,7 @@ class TextNode():
         self.props = props or {}
     
     def text_node_to_html_node(self):
-        """
-            Converts a TextNode into a LeafNode, handling specific TextType values.
 
-            Supported TextTypes:
-            - TEXT: Returns a raw text LeafNode (no tag).
-            - BOLD: Returns a LeafNode with a "b" tag and text value.
-            - ITALIC: Returns a LeafNode with an "i" tag and text value.
-            - CODE: Returns a LeafNode with a "code" tag and text value.
-            - IMAGE: Requires 'src' and 'alt' in props. Returns a LeafNode with "img" tag and props.
-            - LINK: Requires 'href' in props. Returns a LeafNode with an "a" tag, text value, and props.
-
-            Raises:
-            - ValueError: If required props are missing for IMAGE or LINK.
-            - Exception: For unsupported TextTypes.
-        """
         match self.text_type:
             case TextType.TEXT:
                 return LeafNode(None, self.text , None)
